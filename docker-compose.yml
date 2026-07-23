@@ -1,4 +1,19 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: rave-digital-app:local
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+      - redis
+
+
   db:
     image: pgvector/pgvector:pg18-trixie
     environment:
