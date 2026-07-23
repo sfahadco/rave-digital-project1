@@ -8,13 +8,27 @@ docker compose config
 ```
 docker compose up -d
 ```
-- Run following POST request to check vector length
+- Run following POST request to check vector length (should be 768)
 ```
 POST http://localhost:11434/api/embed
 Content-Type: application/json
 
 {"model": "nomic-embed-text", "input": "test string"}
 ```
+
+- Create "vector" extension
+  - enter into db container 
+  ````
+  docker compose exec db /bin/bash
+  ````
+  - Run following to enter into psql
+  ````
+  psql -U rave-digital-user -d rave-digital
+  ````
+  - Run following to create extension
+  ````
+  CREATE EXTENSION vector;
+  ````
 
 - Measure Ollama Startup Performance Metric
 
