@@ -1,0 +1,9 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PhpStorm
+
+###
+POST http://localhost:11434/api/embed
+Content-Type: application/json
+
+{"model": "nomic-embed-text", "input": "test string"}
